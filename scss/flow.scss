@@ -1,0 +1,138 @@
+@mixin position-x {
+    left: 50%;
+    transform: translateX(-50%);
+    -webkit-transform: translateX(-50%);
+    -moz-transform: translateX(-50%);
+    -ms-transform: translateX(-50%);
+    -o-transform: translateX(-50%);
+}
+@mixin position-y {
+    top: 50%;
+    transform: translateY(-50%);
+    -webkit-transform: translateY(-50%);
+    -moz-transform: translateY(-50%);
+    -ms-transform: translateY(-50%);
+    -o-transform: translateY(-50%);
+}
+@mixin position-all {
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    -webkit-transform: translate(-50%, -50%);
+    -moz-transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    -o-transform: translate(-50%, -50%);
+}
+
+@mixin background-set {
+    background-size: 100% 100%;
+    background-position: center center;
+    background-repeat: no-repeat;
+}
+
+@mixin textover-flow {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+@mixin addtransform {
+    -webkit-transition: all 0.5s;
+    transition: all 0.5s;
+}
+
+html {
+    width: 100%;
+    height: 100%;
+    background: #083246;
+}
+.flow-dom {
+    width: 1200px;
+    height: 100px;
+    margin: 100px auto;
+    ul.flow-wrapper {
+        display: flex;
+        height: 100%;
+        padding-bottom: 10px;
+        li.flow-item {
+            width: auto !important;
+            height: 100%;
+            position: relative;
+            float: left;
+            .flow-inner {
+                width: 200px;
+                height: 100%;
+                position: relative;
+                .flow-light {
+                    display: block;
+                    position: absolute;
+                    width: 18px;
+                    height: 18px;
+                    background-image: url(../images/gray-li-i.png);
+                    @include background-set;
+                    left: 91px;
+
+                    @include position-y;
+                    z-index: 9;
+                }
+                .flow-name {
+                    font: 14px/40px "微软雅黑";
+                    color: #fff;
+                    width: 200px;
+                    text-align: center;
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                }
+
+                .flow-time {
+                    font-size: 12px;
+                    height: auto;
+                    color: #fff;
+                    width: 200px;
+                    text-align: center;
+                    position: absolute;
+                    bottom: 10px;
+                    left: 0;
+                }
+                &::before {
+                    content: "";
+                    display: block;
+                    width: 100%;
+                    height: 18px;
+                    background: #848484;
+                    position: absolute;
+                    @include position-y;
+                    left: -50%;
+                }
+                
+
+                &.green-state {
+                    .flow-light {
+                        background-image: url(../images/green-li-i.png);
+                    }
+                    &::before {
+                        content: "";
+                        background: #26b20f;
+                    }
+                }
+
+                &.red-state {
+                    .flow-light {
+                        background-image: url(../images/red-li-i.png);
+                    }
+
+                    &::before {
+                        content: "";
+                        background: #d8381b;
+                    }
+                }
+            }
+            &:first-child {
+                &>.flow-inner::before {
+                    display: none;
+                }
+            }
+        }
+    }
+}

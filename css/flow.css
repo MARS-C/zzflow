@@ -1,0 +1,109 @@
+@charset "UTF-8";
+html {
+  width: 100%;
+  height: 100%;
+  background: #083246;
+}
+
+.flow-dom {
+  width: 1200px;
+  height: 100px;
+  margin: 100px auto;
+}
+
+.flow-dom ul.flow-wrapper {
+  display: flex;
+  height: 100%;
+  padding-bottom: 10px;
+}
+
+.flow-dom ul.flow-wrapper li.flow-item {
+  width: auto !important;
+  height: 100%;
+  position: relative;
+  float: left;
+}
+
+.flow-dom ul.flow-wrapper li.flow-item .flow-inner {
+  width: 200px;
+  height: 100%;
+  position: relative;
+}
+
+.flow-dom ul.flow-wrapper li.flow-item .flow-inner .flow-light {
+  display: block;
+  position: absolute;
+  width: 18px;
+  height: 18px;
+  background-image: url(../images/gray-li-i.png);
+  background-size: 100% 100%;
+  background-position: center center;
+  background-repeat: no-repeat;
+  left: 91px;
+  top: 50%;
+  transform: translateY(-50%);
+  -webkit-transform: translateY(-50%);
+  -moz-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  -o-transform: translateY(-50%);
+  z-index: 9;
+}
+
+.flow-dom ul.flow-wrapper li.flow-item .flow-inner .flow-name {
+  font: 14px/40px "微软雅黑";
+  color: #fff;
+  width: 200px;
+  text-align: center;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.flow-dom ul.flow-wrapper li.flow-item .flow-inner .flow-time {
+  font-size: 12px;
+  height: auto;
+  color: #fff;
+  width: 200px;
+  text-align: center;
+  position: absolute;
+  bottom: 10px;
+  left: 0;
+}
+
+.flow-dom ul.flow-wrapper li.flow-item .flow-inner::before {
+  content: "";
+  display: block;
+  width: 100%;
+  height: 18px;
+  background: #848484;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  -webkit-transform: translateY(-50%);
+  -moz-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  -o-transform: translateY(-50%);
+  left: -50%;
+}
+
+.flow-dom ul.flow-wrapper li.flow-item .flow-inner.green-state .flow-light {
+  background-image: url(../images/green-li-i.png);
+}
+
+.flow-dom ul.flow-wrapper li.flow-item .flow-inner.green-state::before {
+  content: "";
+  background: #26b20f;
+}
+
+.flow-dom ul.flow-wrapper li.flow-item .flow-inner.red-state .flow-light {
+  background-image: url(../images/red-li-i.png);
+}
+
+.flow-dom ul.flow-wrapper li.flow-item .flow-inner.red-state::before {
+  content: "";
+  background: #d8381b;
+}
+
+.flow-dom ul.flow-wrapper li.flow-item:first-child > .flow-inner::before {
+  display: none;
+}
